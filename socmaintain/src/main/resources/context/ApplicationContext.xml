@@ -6,6 +6,5 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
 	<!-- Imports the configurations of the different infrastructure systems of the application -->
-       <!-- <import resource="classpath:/context/society-dataaccess.xml" /> -->
        <import resource="classpath:/context/security-context.xml" />
 </beans>

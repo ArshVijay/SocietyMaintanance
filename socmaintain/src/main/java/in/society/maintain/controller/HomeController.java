@@ -34,4 +34,20 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/login", method = RequestMethod.GET)
+	public String login(Model model){
+		return "login";
+	}
+	
+	@RequestMapping(value="/accessdenied", method = RequestMethod.GET)
+	public String accessdenied(Model model){
+		model.addAttribute("error", "true");
+		return "denied";
+	}
+	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout(Model model){
+		return "logout";
+	}
+	
 }
