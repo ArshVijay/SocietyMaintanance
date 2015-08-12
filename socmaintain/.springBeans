@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/resources/context/society-dataaccess.xml</config>
 		<config>src/main/resources/context/security-context.xml</config>
 	</configs>
 	<autoconfigs>
