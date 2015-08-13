@@ -43,19 +43,26 @@
 	
 	<beans:bean id="sessionFactory"	class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"></beans:property>
-		<beans:property name="packagesToScan">
+		<!-- <beans:property name="packagesToScan">
 			<beans:list>
 				<beans:value>in.society.maintain.model.User</beans:value>
 			</beans:list>
+		</beans:property> -->
+		<beans:property name="configLocation">
+			<beans:value>classpath:hibernate.cfg.xml</beans:value>
 		</beans:property>
 		<beans:property name="hibernateProperties">
 			<beans:props>
 				<beans:prop key="hibernate.dialect">${jdbc.dialect}</beans:prop>
 				<beans:prop key="hibernate.show_sql">true</beans:prop>
+				<beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
 			</beans:props>
 		</beans:property>
+		
 	</beans:bean>
 	
+	<beans:bean id="userDetailService" class="in.society.maintain.service.UserDetailServiceImpl"> </beans:bean>
+	<beans:bean id="userDAO" class="in.society.maintain.dao.UserDAOImpl"> </beans:bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
