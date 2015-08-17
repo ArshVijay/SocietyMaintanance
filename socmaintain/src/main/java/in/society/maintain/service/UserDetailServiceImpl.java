@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import in.society.maintain.controller.UserDetailsVO;
+import in.society.maintain.common.SocietyMaintenanceException;
 import in.society.maintain.dao.UserDAO;
 
 
@@ -16,30 +16,30 @@ public class UserDetailServiceImpl implements UserDetailService {
 	private UserDAO userDAO;
 	
 	@Override
-	public String addUser(UserDetailsVO userDetail) {
+	public String addUser(UserDetailsVO userDetail) throws SocietyMaintenanceException{
 		return null;
 	}
 
 	@Override
-	public UserDetailsVO updateUser(UserDetailsVO userDetail) {
+	public UserDetailsVO updateUser(UserDetailsVO userDetail) throws SocietyMaintenanceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String deleteUser(Integer userId) {
+	public String deleteUser(Integer userId) throws SocietyMaintenanceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public UserDetailsVO getUserDetails(Integer userId) {
+	public UserDetailsVO getUserDetails(Integer userId) throws SocietyMaintenanceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<UserDetailsVO> getAllUsers() {
+	public List<UserDetailsVO> getAllUsers() throws SocietyMaintenanceException {
 		// TODO Auto-generated method stub
 		return null;
 	}

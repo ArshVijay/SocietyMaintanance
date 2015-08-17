@@ -11,9 +11,8 @@
 		<intercept-url pattern="/logout" access="permitAll" />
 		<intercept-url pattern="/accessdenied" access="permitAll" />
 		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
-		<form-login login-page="/login" default-target-url="/home"
-			authentication-failure-url="/accessdenied" />
-		<logout logout-success-url="/logout" />
+		<form-login login-page="/login" default-target-url="/home" authentication-failure-url="/accessdenied" />
+		<logout logout-success-url="/logout" invalidate-session="true" delete-cookies="JSESSIONID"/>
 	</http>
 
 	<authentication-manager>
