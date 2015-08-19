@@ -14,7 +14,7 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
-	<context:component-scan base-package="in.society.maintain.controller" />
+	<context:component-scan base-package="in.society.maintain" />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
@@ -61,8 +61,8 @@
 		
 	</beans:bean>
 	
-	<beans:bean id="userDetailService" class="in.society.maintain.service.UserDetailServiceImpl"> </beans:bean>
-	<beans:bean id="userDAO" class="in.society.maintain.dao.UserDAOImpl"> </beans:bean>
+	<!-- <beans:bean id="userDetailService" class="in.society.maintain.service.UserDetailServiceImpl"> </beans:bean>
+	<beans:bean id="userDAO" class="in.society.maintain.dao.UserDAOImpl"> </beans:bean> -->
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
