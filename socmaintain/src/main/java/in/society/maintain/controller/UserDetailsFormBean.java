@@ -2,16 +2,16 @@ package in.society.maintain.controller;
 
 public class UserDetailsFormBean {
 
-	private String userId;
+	private Integer userId;
 	private String userName;
 	private String password;
 
-	public String getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserId(Integer integer) {
+		this.userId = integer;
 	}
 
 	public String getUserName() {

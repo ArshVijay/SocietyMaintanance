@@ -55,9 +55,11 @@ public class UserDetailServiceImpl implements UserDetailService {
 	}
 
 	@Override
+	@Transactional
 	public List<UserDetailsVO> getAllUsers() throws SocietyMaintenanceException {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> user=userDAO.getAllUsers();
+		List<UserDetailsVO> userDetailsVOList=userDetailServiceHelper.populateUserDetailVOList(user);
+		return userDetailsVOList;
 	}
 
 	public void setUserDAO(UserDAO userDAO) {

@@ -57,7 +57,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<User> getAllUsers() {
 		LOGGER.debug("Getting all the user");
-		return this.sessionFactory.getCurrentSession().createQuery("from USer").list();
+		return this.sessionFactory.getCurrentSession().createQuery("from User").list();
 	}
 
 }

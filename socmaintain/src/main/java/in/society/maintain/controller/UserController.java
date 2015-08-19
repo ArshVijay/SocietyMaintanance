@@ -1,15 +1,16 @@
 package in.society.maintain.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import in.society.maintain.common.SocietyMaintenanceException;
-import in.society.maintain.dao.UserDAOImpl;
-import in.society.maintain.model.User;
 import in.society.maintain.service.UserDetailService;
 import in.society.maintain.service.UserDetailsVO;
 
@@ -37,16 +38,22 @@ public class UserController {
 		} catch (SocietyMaintenanceException e) {
 			System.out.println("User ADDED Sucessfuly" +  e.getMessage());
 		}
-		return userName;
+		return "home";
 	}
 	
 	@RequestMapping(value="/addUser", method = RequestMethod.GET)
 	public String addUsers(Model model) {
 		return "adduser";
 	}
+	@RequestMapping(value="/editUser", method = RequestMethod.GET)
+	public String editUsers(Model model) {
+		return "editUser";
+	}
+	
 
 	@RequestMapping(value="/edit",method = RequestMethod.POST)
 	public String updateUser(Model model) {
+		
 		return null;
 	}
 	@RequestMapping(value="/getUser",method = RequestMethod.GET)
@@ -58,7 +65,11 @@ public class UserController {
 		return null;
 	}
 	@RequestMapping(value="/getAllUsers",method = RequestMethod.GET)
-	public String getAllUsers(Model model) {
-		return null;
+	public ModelAndView  getAllUsers() throws SocietyMaintenanceException {
+		List<UserDetailsVO> userDetailVOList= userDetailService.getAllUsers();
+		List<UserDetailsFormBean> userDetailFormBean=userControllerHelper.populateUserDetailsFormBeanVOList(userDetailVOList);
+		ModelAndView model = new ModelAndView("viewallusers");
+		model.addObject("userDetailList", userDetailFormBean);
+		return model;
 	}
 }
