@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import in.society.maintain.common.CommonUtils;
-import in.society.maintain.model.User;
 import in.society.maintain.service.UserDetailsVO;
 
 @Component

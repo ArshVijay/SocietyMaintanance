@@ -14,4 +14,12 @@ public class CommonUtils {
 			return false;
 		}
 	}
+	public static boolean isNullorEmpty(Integer str) {
+		
+		if (str.SIZE==10) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

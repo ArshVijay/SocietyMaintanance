@@ -10,9 +10,9 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-
 <a href="${pageContext.request.contextPath}/login"> Logout here</a>
 <a href="${pageContext.request.contextPath}/user/addUser">Add a User</a>
 <a href="${pageContext.request.contextPath}/user/getAllUsers">All User</a>
+<a href="${pageContext.request.contextPath}/complaint/raiseComplaint">Raise Complaint</a>
 </body>
 </html>

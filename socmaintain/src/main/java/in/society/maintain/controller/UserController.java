@@ -5,15 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.society.maintain.common.SocietyMaintenanceException;
 import in.society.maintain.service.UserDetailService;
 import in.society.maintain.service.UserDetailsVO;
-
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -25,12 +24,8 @@ public class UserController {
 	private UserDetailService userDetailService;
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
-	public String addUser(@RequestParam("username") String user,@RequestParam("password") String password) {
+	public String addUser(@ModelAttribute("userDetailsFormBean") UserDetailsFormBean userDetailsFormBean) {
 		String userName= null;
-		
-		UserDetailsFormBean userDetailsFormBean = new UserDetailsFormBean();
-		userDetailsFormBean.setUserName(user);
-		userDetailsFormBean.setPassword(password);
 		try {
 			UserDetailsVO userDetailsVO = userControllerHelper.populateUserDetailsVO(userDetailsFormBean);
 			userName = userDetailService.addUser(userDetailsVO);
@@ -42,7 +37,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/addUser", method = RequestMethod.GET)
-	public String addUsers(Model model) {
+	public String addUsers(@ModelAttribute("userDetailsFormBean") UserDetailsFormBean userDetailsFormBean) {
+		//model.addAttribute(new UserDetailsFormBean());
 		return "adduser";
 	}
 	@RequestMapping(value="/editUser", method = RequestMethod.GET)

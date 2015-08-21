@@ -4,8 +4,31 @@
 
 <html>
 	<body>
-		<h1 id="banner">Add a New User</h1>  
-		<form name="f" action="/maintain/user/add" method="POST">
+		<h1 id="banner">Add a New User</h1> 
+		
+		
+		
+		<form:form modelAttribute="userDetailsFormBean" action="/maintain/user/add" method="POST" >
+		<table width="50%" border="1">
+			<tr>
+				<td>User Name</td>
+				<td><form:input path="userName" />
+				</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><form:password path="password" />
+				</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Login" />
+				</td>
+			</tr>
+		</table>
+	</form:form> 
+		<%-- <form name="f" action="/maintain/user/add" method="POST">
 			<table>
 				<tr>
 					<td>Username:</td>
@@ -22,6 +45,6 @@
 					<td colspan='2'><input name="submit" type="submit">&nbsp;<input name="reset" type="reset"></td>
 				</tr>
 			</table>
-		</form>
+		</form> --%>
 	</body>
 </html>
