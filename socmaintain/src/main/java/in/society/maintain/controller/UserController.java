@@ -63,9 +63,9 @@ public class UserController {
 	@RequestMapping(value="/getAllUsers",method = RequestMethod.GET)
 	public ModelAndView  getAllUsers() throws SocietyMaintenanceException {
 		List<UserDetailsVO> userDetailVOList= userDetailService.getAllUsers();
-		List<UserDetailsFormBean> userDetailFormBean=userControllerHelper.populateUserDetailsFormBeanVOList(userDetailVOList);
+		List<UserDetailsFormBean> userDetailFormBeanList=userControllerHelper.populateUserDetailsFormBeanVOList(userDetailVOList);
 		ModelAndView model = new ModelAndView("viewallusers");
-		model.addObject("userDetailList", userDetailFormBean);
+		model.addObject("userDetailList", userDetailFormBeanList);
 		return model;
 	}
 }
