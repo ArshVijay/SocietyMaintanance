@@ -6,7 +6,7 @@
 <html>
 <head>
 
-   <title>Complaint</title>
+   <title>Raise Complaint</title>
    <link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet">
     <script src="<c:url value="/resources/js/jquery.js" />"></script>
     <script src="<c:url value="/resources/js/script.js" />"></script>
