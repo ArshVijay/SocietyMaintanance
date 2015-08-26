@@ -5,6 +5,9 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
+	<bean id="loginDetailsDAO" class="in.society.maintain.dao.LoginDetailsDAOImpl"/>
+	<bean id="socUserDetailsService" class="in.society.maintain.service.SocUserDetailsServiceImpl" />
+	
 	<!-- Imports the configurations of the different infrastructure systems of the application -->
        <import resource="classpath:/context/security-context.xml" />
 </beans>

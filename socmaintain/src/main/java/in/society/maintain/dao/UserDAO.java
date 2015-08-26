@@ -2,6 +2,7 @@ package in.society.maintain.dao;
 
 import java.util.List;
 
+import in.society.maintain.model.Module;
 import in.society.maintain.model.User;
 
 public interface UserDAO {
@@ -44,5 +45,6 @@ public interface UserDAO {
 	 * @return List of Users {@linkplain List<User>}
 	 */
 	List<User> getAllUsers();
+
 
 }
