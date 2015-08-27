@@ -9,27 +9,24 @@ import org.springframework.transaction.annotation.Transactional;
 import in.society.maintain.dao.ModuleDAO;
 import in.society.maintain.model.Module;
 
-
 @Service
 public class ModuleServiceImpl implements ModuleService {
 
 	@Autowired
 	private ModuleDAO moduleDAO;
-	
+
 	@Autowired
 	private UserDetailServiceHelper userDetailServiceHelper;
-	
-
 
 	@Override
 	@Transactional
 	public List<Module> getAllTopModules() {
-		List<Module> moduleList=moduleDAO.getAllTopModules();
+		List<Module> moduleList = moduleDAO.getAllTopModules();
 		return moduleList;
 	}
 
 	public void setModuleDAO(ModuleDAO moduleDAO) {
 		this.moduleDAO = moduleDAO;
 	}
-	
+
 }

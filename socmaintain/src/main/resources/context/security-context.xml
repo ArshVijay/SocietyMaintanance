@@ -16,16 +16,15 @@
 		<logout logout-success-url="/logout" />
 	</http>
 
-	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="admin" password="admin" authorities="ROLE_USER" />
-			</user-service>
+	<!-- <authentication-manager> <authentication-provider> <user-service> <user 
+		name="admin" password="admin" authorities="ROLE_USER" /> </user-service> 
+		</authentication-provider> </authentication-manager> -->
+
+	<authentication-manager erase-credentials="false">
+		<authentication-provider user-service-ref="socUserDetailsService">
+			<password-encoder hash="md5"></password-encoder>
 		</authentication-provider>
 	</authentication-manager>
-
-	<!-- <authentication-manager erase-credentials="false"> <authentication-provider 
-		user-service-ref="socUserDetailsService"> <password-encoder hash="md5"></password-encoder> 
-		</authentication-provider> </authentication-manager> <beans:bean id="socUserDetailsService" 
-		class="in.society.maintain.service.SocUserDetailsServiceImpl"></beans:bean> -->
+	<beans:bean id="socUserDetailsService"
+		class="in.society.maintain.service.SocUserDetailsServiceImpl"></beans:bean>
 </beans:beans>

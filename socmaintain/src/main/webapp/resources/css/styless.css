@@ -37,7 +37,7 @@
   position: relative;
 }
 #cssmenu > ul > li > a {
-  padding: 23px 26px;
+  padding: 18px 28px;
   display: block;
   color: white;
   font-size: 13px;
@@ -94,7 +94,7 @@
   width: 100%;
 }
 #cssmenu > ul ul li a {
-  padding: 18px 26px;
+  padding: 12px 20px;
   display: block;
   color: white;
   font-size: 13px;

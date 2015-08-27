@@ -30,28 +30,28 @@ public class HomeController {
 
 	@Autowired
 	private ModuleService moduleService;
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
-Map<String, List<String>> moduleslist=new HashMap<String, List<String>>();
-List<String> mlist1=new ArrayList<String>();
-List<String> mlist2=new ArrayList<String>();
+	Map<String, List<String>> moduleslist = new HashMap<String, List<String>>();
+	List<String> mlist1 = new ArrayList<String>();
+	List<String> mlist2 = new ArrayList<String>();
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(ModelMap model) {
-		try {
-			List<Module> modulelist=moduleService.getAllTopModules();
+		/*try {
+			List<Module> modulelist = moduleService.getAllTopModules();
 			model.addAttribute("modulelist", modulelist);
 			mlist1.add("Ädd Complaint");
 			mlist1.add("edit Complaint");
 			mlist2.add("Request Amendements");
 			mlist2.add("Grant Amendements");
-			moduleslist.put("Complaints",mlist1 );
-			moduleslist.put("Amendments",mlist2 );
+			moduleslist.put("Complaints", mlist1);
+			moduleslist.put("Amendments", mlist2);
 			model.addAttribute("moduleslist", moduleslist);
 		} catch (SocietyMaintenanceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		return "home";
 	}
 
@@ -70,25 +70,13 @@ List<String> mlist2=new ArrayList<String>();
 	public String logout(Model model) {
 		return "logout";
 	}
-	
+
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String getHomePage(Locale locale, ModelMap model){
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate);
+	public String getHomePage(Locale locale, ModelMap model) {
 		try {
-			List<Module> modulelist=moduleService.getAllTopModules();
+			List<Module> modulelist = moduleService.getAllTopModules();
 			model.addAttribute("modulelist", modulelist);
-			mlist1.add("Ädd Complaint");
-			mlist1.add("edit Complaint");
-			mlist2.add("Request Amendements");
-			mlist2.add("Grant Amendements");
-			moduleslist.put("Complaints",mlist1 );
-			moduleslist.put("Amendments",mlist2 );
-			model.addAttribute("moduleslist", moduleslist);
 		} catch (SocietyMaintenanceException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "home";
