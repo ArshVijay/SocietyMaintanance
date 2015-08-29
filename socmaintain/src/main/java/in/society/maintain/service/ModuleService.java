@@ -9,6 +9,6 @@ public interface ModuleService {
 
 	
 
-	List<Module> getAllTopModules() throws SocietyMaintenanceException;
+	List<Module> getAllTopModules(String role) throws SocietyMaintenanceException;
 
 }

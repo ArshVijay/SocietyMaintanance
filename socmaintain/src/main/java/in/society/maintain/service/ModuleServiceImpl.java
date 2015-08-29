@@ -20,8 +20,8 @@ public class ModuleServiceImpl implements ModuleService {
 
 	@Override
 	@Transactional
-	public List<Module> getAllTopModules() {
-		List<Module> moduleList = moduleDAO.getAllTopModules();
+	public List<Module> getAllTopModules(String role) {
+		List<Module> moduleList = moduleDAO.getAllTopModules(role);
 		return moduleList;
 	}
 

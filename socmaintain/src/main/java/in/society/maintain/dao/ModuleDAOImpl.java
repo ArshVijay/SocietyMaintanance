@@ -3,7 +3,7 @@ package in.society.maintain.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,12 +21,17 @@ public class ModuleDAOImpl implements ModuleDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Module> getAllTopModules() {
+	public List<Module> getAllTopModules(String role) {
 		LOGGER.debug("Getting all the user");
+		String Query = "select * from modules m where m.user_role = 'N'";
+		SQLQuery queryString = sessionFactory.getCurrentSession().createSQLQuery(Query).addEntity(Module.class);
 		List<Module> modules = new ArrayList<Module>();
-		Query queryString = sessionFactory.getCurrentSession().createQuery("from Module");
 		modules = queryString.list();
+		for (Module module : modules) {
+			System.out.println("Top module :  "+module.getModuleTopName());
+			System.out.println("Module"+module.getModuleName());
+			
+			
+		}
 		return modules;
-	}
-
-}
+	}}

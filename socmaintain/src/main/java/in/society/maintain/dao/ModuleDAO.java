@@ -7,6 +7,7 @@ import in.society.maintain.model.Module;
 public interface ModuleDAO {
 
 
-	List<Module> getAllTopModules();
+	List<Module> getAllTopModules(String role);
+
 
 }

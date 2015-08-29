@@ -1,12 +1,11 @@
 package in.society.maintain.controller;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import in.society.maintain.common.SocietyMaintenanceException;
 import in.society.maintain.model.Module;
 import in.society.maintain.service.ModuleService;
-import in.society.maintain.service.UserDetailService;
+import in.society.maintain.service.ModuleServiceHelper;
 
 /**
  * Handles requests for the application home page.
@@ -30,6 +29,9 @@ public class HomeController {
 
 	@Autowired
 	private ModuleService moduleService;
+	
+
+	private ModuleServiceHelper moduleServiceHelper= new ModuleServiceHelper();
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 	Map<String, List<String>> moduleslist = new HashMap<String, List<String>>();
@@ -38,20 +40,21 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(ModelMap model) {
-		/*try {
-			List<Module> modulelist = moduleService.getAllTopModules();
+		Map<String, List<Module>> subModuleMap;
+		Set<String> topModulelist;
+		List<Module> modulelist;
+		try {
+			modulelist = moduleService.getAllTopModules("ADMIN_ROLE");
+			topModulelist=moduleServiceHelper.getTopbModules(modulelist);
+			subModuleMap=moduleServiceHelper.getSubModules(modulelist);
+			model.addAttribute("topModuleList",topModulelist);
+			model.addAttribute("subModuleMap",subModuleMap);
 			model.addAttribute("modulelist", modulelist);
-			mlist1.add("Ädd Complaint");
-			mlist1.add("edit Complaint");
-			mlist2.add("Request Amendements");
-			mlist2.add("Grant Amendements");
-			moduleslist.put("Complaints", mlist1);
-			moduleslist.put("Amendments", mlist2);
-			model.addAttribute("moduleslist", moduleslist);
+			
 		} catch (SocietyMaintenanceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		return "home";
 	}
 
@@ -74,7 +77,7 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String getHomePage(Locale locale, ModelMap model) {
 		try {
-			List<Module> modulelist = moduleService.getAllTopModules();
+			List<Module> modulelist = moduleService.getAllTopModules("ADMIN_ROLE");
 			model.addAttribute("modulelist", modulelist);
 		} catch (SocietyMaintenanceException e) {
 			e.printStackTrace();

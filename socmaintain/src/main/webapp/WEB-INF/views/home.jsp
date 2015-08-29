@@ -41,16 +41,33 @@
 
 <div id='cssmenu'>
 
+<%-- <ul>
+   <li class='active'><a href='#'><span>Home</span></a></li>
+   <c:forEach var="listValue" items="${topModuleList}">
+   <li class='has-sub'><a href='#'><span>${listValue}</span></a>
+      <ul>
+			<c:choose>
+    			<c:when test="${listValue.moduleName != null}">
+      		
+       					<li><a href='${listValue.moduleUrl}'><span>${listValue.moduleName}</span></a></li>
+        			
+    			</c:when>
+   			 </c:choose>
+    
+      </ul>
+   </li>
+   </c:forEach>
+</ul> --%>
 <ul>
    <li class='active'><a href='#'><span>Home</span></a></li>
-   <c:forEach var="listValue" items="${modulelist}">
-   <li class='has-sub'><a href='#'><span>${listValue.moduleTopName}</span></a>
+   <c:forEach var="topModule" items="${topModuleList}">
+   <li class='has-sub'><a href='#'><span>${topModule}</span></a>
       <ul>
-      <c:forEach items="${moduleslist}" var="entry">
+      <c:forEach items="${subModuleMap}" var="entry">
    			 <c:choose>
-    			<c:when test="${entry.key == listValue.moduleTopName }">
+    			<c:when test="${entry.key == topModule }">
       				<c:forEach items="${entry.value}" var="mapEntry">. 
-       					<li><a href='#'><span>${mapEntry}</span></a></li>
+       					<li><a href='${mapEntry.moduleUrl}'><span>${mapEntry.moduleName}</span></a></li>
         			</c:forEach>
     			</c:when>
    			 </c:choose>
@@ -58,8 +75,8 @@
       </ul>
    </li>
    </c:forEach>
+   <li class='active'><a href='http://localhost:8080/maintain/logout'><span>Log out</span></a></li>
 </ul>
-
 </div>
 </body>
 </html>
