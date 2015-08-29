@@ -20,7 +20,7 @@
 <script src="<c:url value="/resources/js/jquery-1.11.2.min.js" />"></script>
 <script src="<c:url value="/resources/js/dateselector.min.js" />"></script>
 <script src="<c:url value="/resources/js/dateselector.js" />"></script>
-<script src="<c:url value="/resources/js/hideandshow.js" />"></script>
+<%-- <script src="<c:url value="/resources/js/hideandshow.js" />"></script> --%>
 <script src="<c:url value="http://code.jquery.com/jquery.min.js" />"></script>
 
 
