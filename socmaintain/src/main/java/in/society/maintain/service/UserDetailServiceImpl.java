@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import in.society.maintain.common.SocietyMaintenanceException;
 import in.society.maintain.controller.UserControllerHelper;
 import in.society.maintain.dao.UserDAO;
+import in.society.maintain.model.SocUser;
 import in.society.maintain.model.User;
 
 
@@ -23,12 +24,14 @@ public class UserDetailServiceImpl implements UserDetailService {
 	
 	@Override
 	@Transactional
-	public String addUser(UserDetailsVO userDetailVO) throws SocietyMaintenanceException {
+	public String addSocUser(SocUserDetailsVO socUserDetailsVO) throws SocietyMaintenanceException {
 		String userName = null;
+		
+		
 		try {
 			//UserDetailServiceHelper userDetailServiceHelper = new UserDetailServiceHelper(); 
-			User user = userDetailServiceHelper.populateUser(userDetailVO);
-			userName = userDAO.addUser(user);
+			SocUser socUser = userDetailServiceHelper.populateSocUser(socUserDetailsVO);
+			userName = userDAO.addSocUser(socUser);
 		} catch (Exception e) {
 			System.out.println("Execption while adding user");
 			throw new SocietyMaintenanceException(e.getMessage(), e);

@@ -26,16 +26,18 @@ public class ModuleServiceHelper {
 			if( module.getModuleTopName().toString().equals("Amendments")){
 				amendmensList.add(module);
 			}
-		/*	if( module.getModuleTopName().toString().equals("Documentation")){
-				complaintsList.add(module);
+			if( module.getModuleTopName().toString().equals("User")){
+				usersList.add(module);
 			}
-			if( module.getModuleTopName().toString().equals("Users")){
-				complaintsList.add(module);
-			}*/
+//			if( module.getModuleTopName().toString().equals("Users")){
+//				complaintsList.add(module);
+//			}
 
 		}
 		subModuleMap.put("Complaint", complaintsList);
 		subModuleMap.put("Amendments", amendmensList);
+		subModuleMap.put("User", usersList);
+		
 
 		return subModuleMap;
 

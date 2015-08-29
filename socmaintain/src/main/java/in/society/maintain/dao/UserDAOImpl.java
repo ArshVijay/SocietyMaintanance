@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import in.society.maintain.model.SocUser;
 import in.society.maintain.model.User;
 
 @Repository
@@ -17,11 +19,11 @@ public class UserDAOImpl implements UserDAO {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public String addUser(User user) {
-		LOGGER.debug("Add new user");
-		this.sessionFactory.getCurrentSession().save(user);
-		LOGGER.debug("user {} is added successfully", user.getUserName());
-		return user.getUserName();
+	public String addSocUser(SocUser socUser) {
+		LOGGER.debug("Add new soc user");
+		this.sessionFactory.getCurrentSession().save(socUser);
+		LOGGER.debug("user {} is added successfully", socUser.getFirstName());
+		return socUser.getFirstName()+" "+socUser.getLastName();
 	}
 
 	@Override

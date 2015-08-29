@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import in.society.maintain.common.SocietyMaintenanceException;
 import in.society.maintain.service.UserDetailService;
 import in.society.maintain.service.UserDetailsVO;
+import in.society.maintain.service.SocUserDetailsVO;
 
 @Controller
 @RequestMapping("/user")
@@ -28,11 +29,16 @@ public class UserController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("userDetailsFormBean") UserDetailsFormBean userDetailsFormBean) {
+	public String addUser(@ModelAttribute("socUserFormBean") SocUserFormBean socUserFormBean) {
 		String userName = null;
+		System.out.println(socUserFormBean.getStartDate());
+		System.out.println(socUserFormBean.getEndDate());
+		System.out.println(socUserFormBean.getIsOwner());
+		System.out.println(socUserFormBean.getFirstName());
+		System.out.println(socUserFormBean.getLastName());
 		try {
-			UserDetailsVO userDetailsVO = userControllerHelper.populateUserDetailsVO(userDetailsFormBean);
-			userName = userDetailService.addUser(userDetailsVO);
+			SocUserDetailsVO socUserVO = userControllerHelper.populateUsersDetailsVO(socUserFormBean);
+			userName = userDetailService.addSocUser(socUserVO);
 			System.out.println("User ADDED Sucessfuly : " + userName);
 		} catch (SocietyMaintenanceException e) {
 			System.out.println("User ADDED Sucessfuly" + e.getMessage());
@@ -41,7 +47,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
-	public String addUsers(@ModelAttribute("userDetailsFormBean") UserDetailsFormBean userDetailsFormBean) {
+	public String addUsers(@ModelAttribute("socUserFormBean") SocUserFormBean socUserFormBean) {
 		// model.addAttribute(new UserDetailsFormBean());
 		return "adduser";
 	}

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import in.society.maintain.common.CommonUtils;
+import in.society.maintain.model.SocUser;
 import in.society.maintain.model.User;
 
 @Component
@@ -27,6 +28,48 @@ public class UserDetailServiceHelper {
 			user.setPassword(userDetailsVO.getPassword());
 		}
 		return user;
+	}
+	public SocUser populateSocUser(SocUserDetailsVO socUserDetailsVO) {
+
+		SocUser socUser = new SocUser();
+
+
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getFirstName())) {
+			socUser.setFirstName(socUserDetailsVO.getFirstName());
+		}
+
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getMiddleName())) {
+			socUser.setMiddleName(socUserDetailsVO.getMiddleName());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getLastName())) {
+			socUser.setLastName(socUserDetailsVO.getLastName());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getEmailId())) {
+			socUser.setEmailId(socUserDetailsVO.getEmailId());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getPanNo())) {
+			socUser.setPanNo(socUserDetailsVO.getPanNo());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getPhoneNo())) {
+			socUser.setPhoneNo(socUserDetailsVO.getPhoneNo());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getAddress())) {
+			socUser.setAddress(socUserDetailsVO.getAddress());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getNoOfMembers())) {
+			socUser.setNoOfMembers(socUserDetailsVO.getNoOfMembers());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getIsOwner())) {
+			socUser.setIsOwner(socUserDetailsVO.getIsOwner());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getStartDate())) {
+			socUser.setStartDate(socUserDetailsVO.getStartDate());
+		}
+		if (!CommonUtils.isNullorEmpty(socUserDetailsVO.getEndDate())) {
+			socUser.setEndDate(socUserDetailsVO.getEndDate());
+		}
+		
+		return socUser;
 	}
 
 	public UserDetailsVO populateUserDetailVO(User user) {

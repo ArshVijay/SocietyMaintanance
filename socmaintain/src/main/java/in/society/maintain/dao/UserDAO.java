@@ -2,7 +2,7 @@ package in.society.maintain.dao;
 
 import java.util.List;
 
-import in.society.maintain.model.Module;
+import in.society.maintain.model.SocUser;
 import in.society.maintain.model.User;
 
 public interface UserDAO {
@@ -13,7 +13,7 @@ public interface UserDAO {
 	 * @param user{{@link User}
 	 * @return Newly created user name
 	 */
-	String addUser(User user);
+	String addSocUser(SocUser socUser);
 
 	/**
 	 * This method is used to update the user details

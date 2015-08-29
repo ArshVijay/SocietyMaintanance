@@ -14,7 +14,7 @@ public interface UserDetailService {
 	 * 			UserDetailsVO}
 	 * @return Newly created user name
 	 */
-	String addUser(UserDetailsVO userDetail) throws SocietyMaintenanceException;
+	String addSocUser(SocUserDetailsVO socUserDetailsVO) throws SocietyMaintenanceException;
 
 	/**
 	 * This method is used to update the user details

@@ -23,15 +23,13 @@ public class ModuleDAOImpl implements ModuleDAO {
 	@Override
 	public List<Module> getAllTopModules(String role) {
 		LOGGER.debug("Getting all the user");
-		String Query = "select * from modules m where m.user_role = 'N'";
+		String Query = "select * from modules m where m.user_role = 'Y'";
 		SQLQuery queryString = sessionFactory.getCurrentSession().createSQLQuery(Query).addEntity(Module.class);
 		List<Module> modules = new ArrayList<Module>();
 		modules = queryString.list();
 		for (Module module : modules) {
 			System.out.println("Top module :  "+module.getModuleTopName());
-			System.out.println("Module"+module.getModuleName());
-			
-			
+			System.out.println("Module     :"+module.getModuleName());
 		}
 		return modules;
 	}}
