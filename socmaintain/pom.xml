@@ -319,7 +319,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>bird</finalName>
+		<finalName>socmaintain</finalName>
 	</build>
 	<version>maintain</version>
 </project>
